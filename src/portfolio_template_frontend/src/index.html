@@ -10,26 +10,15 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, navy, black, #00008b);
+            background-image: url('images/devcon_background.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             color: white;
             position: relative;
             overflow: hidden;
         }
 
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/devcon_background.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            opacity: 0.25;
-            z-index: -1;
-        }
 
         .container {
             display: flex;
