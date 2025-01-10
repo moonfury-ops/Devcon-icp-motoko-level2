@@ -1,24 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>portfolio_template</title>
-    <base href="/" />
-    <link rel="icon" href="favicon.ico" />
-    <link type="text/css" rel="stylesheet" href="main.css" />
-  </head>
-  <body>
-    <main>
-      <img src="logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#">
-        <label for="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting"></section>
-    </main>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Template</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, navy, black, #00008b);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/dfinity.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: left;
+            padding: 20px;
+            position: relative;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: lightgray;
+            background-size: cover;
+            background-position: center;
+            background-image: url("images/profile-pic.jpg");
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px 5px rgba(0, 191, 255, 0.7), 
+                        0 0 30px 10px rgba(0, 191, 255, 0.5);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+
+        h1 {
+            font-size: 4em;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .links {
+          margin: 20px 0;
+        }
+
+        .links a {
+            color: #00bfff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.5em; /* Adjust link size here */
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .links a i {
+            font-size: 1.2em; /* Adjust icon size here */
+            margin-right: 8px;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+
+        .footer {
+            font-size: 0.9em;
+            color: #b0c4de;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-pic"></div>
+
+        <!-- Change this prior to your name -->
+        <h1>John Richard B. Alix</h1>
+        <h3>About me:</h3>
+
+        <!-- Change this part about you for better information -->
+        <div class="about-me">
+          <ul>
+            <li>DEVCON Vice President - Cagayan De Oro</li>
+            <li>Former CAMPUS DEVCON Ambassador</li>
+            <li>ICP Code Camps Mindanao Head</li>
+          </ul>
+        </div>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/john-richard-alix-666481230/"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            <a href="https://github.com/yhnalx/"><i class="fab fa-github"></i>GitHub</a>
+            <a href="https://www.facebook.com/yhnalx/"><i class="fab fa-facebook"></i>Facebook</a>
+        </div>
+        <div class="footer">
+            <p>Portfolio published during the Smart Contracts Code Camp<br>
+            by <span>DEVCON</span> and <span>ICP PH</span> at DEVCON Cagayan De Oro.<br>
+            ICP offers a groundbreaking platform for building smart contract projects using your existing expertise in ExpressJS, NextJS, and SQLite.<br>
+            This innovative approach leverages canister technology, a new paradigm for smart contracts, to empower developers to create next-generation<br>
+            applications. Explore the future of blockchain development with ICP. Visit <a href="https://islacamp.ph/">https://islacamp.ph/</a> to learn more!</p>
+        </div>
+    </div>
+</body>
 </html>
