@@ -117,19 +117,21 @@
             text-decoration: underline;
         }
 
-        /* Mobile responsiveness */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
+                text-align: center; /* Center align header */
             }
 
             .profile-pic {
                 width: 200px;
                 height: 200px;
+                margin-bottom: 10px;
             }
 
             .description {
                 font-size: 0.9em;
+                text-align: center; /* Center align description */
             }
 
             .links a {
@@ -149,6 +151,7 @@
 
             .footer {
                 font-size: 1em;
+                text-align: center; /* Center align footer text */
             }
 
             .container {
@@ -156,18 +159,14 @@
             }
 
             .header {
-                justify-content: center; 
-                text-align: center;
-            }
-
-            .profile-pic {
-                margin-bottom: 10px;
+                justify-content: center; /* Center profile picture */
+                text-align: center; /* Center the text for mobile */
             }
 
             .links {
                 display: flex;
-                justify-content: center; 
-                gap: 15px;
+                justify-content: center; /* Center the links */
+                gap: 15px; /* Space between links */
                 margin: 20px 0;
             }
         }
@@ -184,6 +183,11 @@
                 margin-bottom: 10px;
             }
 
+            .description {
+                font-size: 1em;
+                text-align: center; 
+            }
+
             .links a {
                 font-size: 1em;
                 margin: 0 8px;
@@ -196,22 +200,22 @@
 
             .footer {
                 font-size: 0.8em;
+                text-align: center; 
             }
 
-            /* Center header on small screens */
             .header {
-                justify-content: center; /* Center profile picture */
-                text-align: center; /* Center the text for small screens */
+                justify-content: center; 
+                text-align: center; 
             }
 
-            /* Center links on small screens */
             .links {
                 display: flex;
-                justify-content: center; /* Center the links */
-                gap: 10px; /* Adjust space between links for small screens */
+                justify-content: center; 
+                gap: 10px; 
                 margin: 20px 0;
             }
         }
+
 
 
     </style>
