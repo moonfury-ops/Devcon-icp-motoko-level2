@@ -1,225 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Template</title>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* General Styles */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('images/devcon_background.png');
-            background-repeat: no-repeat;
-            background-position: left;
-            background-size: cover;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: left;
-            padding: 20px;
-            position: relative;
-        }
-
-        .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background-color: lightgray;
-            background-size: cover;
-            background-position: left;
-            margin-bottom: 20px;
-            box-shadow: 0 0 15px 5px rgba(0, 191, 255, 0.7), 
-                        0 0 30px 10px rgba(0, 191, 255, 0.5);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-
-        /* Header Layout */
-        .header {
-            display: flex;
-            align-items: left;
-            gap: 20px; 
-            flex-wrap: wrap;
-            justify-content: left; 
-        }
-
-        h1 {
-            font-size: 4em;
-            margin: 10px 0;
-        }
-
-        p {
-            font-size: 1.2em;
-            margin: 10px 0;
-        }
-
-        .links {
-            margin: 20px 0;
-            display: flex;
-            justify-content: left;
-            gap: 15px;
-        }
-
-        .links a {
-            color: #00bfff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.5em;
-            display: inline-flex;
-            align-items: left;
-        }
-
-        .links a i {
-            font-size: 1.2em;
-            margin-right: 8px;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            font-size: 0.9em;
-            color: #b0c4de;
-            margin-top: 40px;
-        }
-
-        /* Footer Logos */
-        .footer-logos {
-            display: flex;
-            justify-content: left;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .footer-logo {
-            width: 175px;
-            height: 175px;
-            object-fit: contain;
-        }
-
-        .footer a {
-            color: #00bfff;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-                text-align: center; /* Center align header */
-            }
-
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-                margin-bottom: 10px;
-            }
-
-            .description {
-                font-size: 0.9em;
-                text-align: center; /* Center align description */
-            }
-
-            .links a {
-                font-size: 1.2em;
-                margin: 0 10px;
-            }
-
-            .footer-logo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .footer-logos {
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portfolio Template</title>
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            /* General Styles */
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-image: url('images/devcon_background.png');
+                background-repeat: no-repeat;
+                background-position: left;
+                background-size: cover;
+                color: white;
+                position: relative;
+                overflow: hidden;
+                display: flex;
                 justify-content: center;
-                gap: 20px;
+                align-items: center;    
+                min-height: 100vh;      
             }
-
-            .footer {
-                font-size: 1em;
-                text-align: center; /* Center align footer text */
-            }
-
+    
+            /* Make the content properly aligned */
             .container {
-                padding: 10px;
-            }
-
-            .header {
-                justify-content: center; /* Center profile picture */
-                text-align: center; /* Center the text for mobile */
-            }
-
-            .links {
                 display: flex;
-                justify-content: center; /* Center the links */
-                gap: 15px; /* Space between links */
-                margin: 20px 0;
+                flex-direction: column;
+                align-items: left;
+                justify-content: flex-start; 
+                max-height: 100vh; 
+                overflow-y: auto; 
+                width: 100%;
+                padding: 20px;
+                box-sizing: border-box;
+                text-align: left;
             }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
-                text-align: center;
-            }
-
+    
+    
             .profile-pic {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 10px;
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+                background-color: lightgray;
+                background-size: cover;
+                background-position: left;
+                margin-bottom: 20px;
+                box-shadow: 0 0 15px 5px rgba(0, 191, 255, 0.7), 
+                            0 0 30px 10px rgba(0, 191, 255, 0.5);
+                transition: box-shadow 0.3s ease-in-out;
             }
-
-            .description {
-                font-size: 1em;
-                text-align: center; 
-            }
-
-            .links a {
-                font-size: 1em;
-                margin: 0 8px;
-            }
-
-            .footer-logo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .footer {
-                font-size: 0.8em;
-                text-align: center; 
-            }
-
+    
+            /* Header Layout */
             .header {
-                justify-content: center; 
-                text-align: center; 
-            }
-
-            .links {
                 display: flex;
-                justify-content: center; 
-                gap: 10px; 
-                margin: 20px 0;
+                align-items: left;
+                gap: 20px; 
+                flex-wrap: wrap;
+                justify-content: left; 
             }
-        }
-
-
-
-    </style>
-</head>
+    
+            h1 {
+                font-size: 4em;
+                margin: 10px 0;
+            }
+    
+            p {
+                font-size: 1.2em;
+                margin: 10px 0;
+            }
+    
+            .links {
+                margin: 20px 0;
+                display: flex;
+                justify-content: left;
+                gap: 15px;
+            }
+    
+            .links a {
+                color: #00bfff;
+                text-decoration: none;
+                margin: 0 15px;
+                font-size: 1.5em;
+                display: inline-flex;
+                align-items: left;
+            }
+    
+            .links a i {
+                font-size: 1.2em;
+                margin-right: 8px;
+            }
+    
+            .links a:hover {
+                text-decoration: underline;
+            }
+    
+            .footer {
+                font-size: 0.9em;
+                color: #b0c4de;
+                margin-top: 40px;
+            }
+    
+            /* Footer Logos */
+            .footer-logos {
+                display: flex;
+                justify-content: left;
+                gap: 30px;
+                margin-top: 20px;
+            }
+    
+            .footer-logo {
+                width: 175px;
+                height: 175px;
+                object-fit: contain;
+            }
+    
+            .footer a {
+                color: #00bfff;
+                text-decoration: none;
+            }
+    
+            .footer a:hover {
+                text-decoration: underline;
+            }
+    
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 2.5em;
+                    text-align: center; 
+                }
+    
+                .profile-pic {
+                    width: 200px;
+                    height: 200px;
+                    margin-bottom: 10px;
+                }
+    
+                .description {
+                    font-size: 0.9em;
+                    text-align: center; 
+                }
+    
+                .links a {
+                    font-size: 1.2em;
+                    margin: 0 10px;
+                }
+    
+                .footer-logo {
+                    width: 100px;
+                    height: 100px;
+                }
+    
+                .footer-logos {
+                    justify-content: center;
+                    gap: 20px;
+                }
+    
+                .footer {
+                    font-size: 1em;
+                    text-align: center; 
+                }
+    
+                .container {
+                    padding: 10px;
+                }
+    
+                .header {
+                    justify-content: center; 
+                    text-align: center; 
+                }
+    
+                .links {
+                    display: flex;
+                    justify-content: center; 
+                    gap: 15px; 
+                    margin: 20px 0;
+                }
+            }
+    
+            @media (max-width: 480px) {
+                h1 {
+                    font-size: 2em;
+                    text-align: center;
+                }
+    
+                .profile-pic {
+                    width: 150px;
+                    height: 150px;
+                    margin-bottom: 10px;
+                }
+    
+                .description {
+                    font-size: 1em;
+                    text-align: center; 
+                }
+    
+                .links a {
+                    font-size: 1em;
+                    margin: 0 8px;
+                }
+    
+                .footer-logo {
+                    width: 100px;
+                    height: 100px;
+                }
+    
+                .footer {
+                    font-size: 0.8em;
+                    text-align: center; 
+                }
+    
+                .header {
+                    justify-content: center; 
+                    text-align: center; 
+                }
+    
+                .links {
+                    display: flex;
+                    justify-content: center; 
+                    gap: 10px; 
+                    margin: 20px 0;
+                }
+            }
+        </style>
+    </head>
 <body>
     <div class="container">
         <div class="header">
