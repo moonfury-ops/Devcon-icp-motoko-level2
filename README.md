@@ -1,5 +1,6 @@
 
 # DEVCON Smart Contracts Motoko Template
+## Level 2
 
 Welcome to your new **Portfolio Template** project, and welcome to the Internet Computer development community! This README serves as an introduction to get you started quickly with your project. 
 
