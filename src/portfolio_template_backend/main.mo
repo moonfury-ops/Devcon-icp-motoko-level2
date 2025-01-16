@@ -4,7 +4,7 @@ import Debug "mo:base/Debug";
 actor WebsiteBackend {
 
   // Stable state: Tracks the total number of visits
-  var visitCount: Nat = 0;
+  stable var visitCount: Nat = 0;
 
   // Function: Increment the visit count and return the updated count
   public func recordVisit() : async Nat {
