@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Template</title>
+    <title>Yuehan Portfolio</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* General Styles */
         body {
@@ -50,6 +51,7 @@
             box-shadow: 0 0 15px 5px rgba(0, 191, 255, 0.7), 
                         0 0 30px 10px rgba(0, 191, 255, 0.5);
             transition: box-shadow 0.3s ease-in-out;
+            margin-top: 25px;
         }
 
         /* Header Layout */
@@ -135,6 +137,7 @@
                 width: 200px;
                 height: 200px;
                 margin-bottom: 10px;
+                margin-top: 25px;
             }
 
             .description {
@@ -206,6 +209,10 @@
                 height: 100px;
             }
 
+            .footer p {
+                margin: 0px;
+            }
+
             .footer {
                 font-size: 0.8em;
                 text-align: center; 
@@ -223,6 +230,168 @@
                 margin: 20px 0;
             }
         }
+
+        .landing-page {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: center; 
+            text-align: left;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 90%; 
+            width: 90%; 
+            max-width: 1000px;
+        }
+
+
+        .landing-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .landing-image img {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            object-fit: contain;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .landing-image img:hover {
+            transform: scale(1.1);
+        }
+
+        .landing-text {
+            max-width: 600px;
+        }
+
+
+        .landing-text h2 {
+            font-size: 2.5em;
+            color: #00bfff;
+            margin-bottom: 15px;
+        }
+
+        .landing-text li{
+            font-size: medium;
+            color: #b0c4de;
+            margin-bottom: 15px;
+        }
+
+        .landing-text p {
+            font-size: 1.2em;
+            color: #b0c4de;
+            line-height: 1.6em;
+        }
+
+        @media (max-width: 768px) {
+            .landing-page {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px; 
+            }
+
+            .landing-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .landing-image img {
+                width: 150px; 
+                height: 150px;
+                margin-bottom: 15px;
+            }
+
+            .landing-text h2 {
+                font-size: 1.8em; 
+                margin-bottom: 10px;
+            }
+
+            .landing-text p {
+                font-size: 1em; 
+                line-height: 1.4em;
+            }
+
+            .landing-text li {
+                font-size: 0.9em;
+            }
+
+            .learn-more-btn {
+                font-size: 1em;
+                padding: 8px 16px;
+                margin-top: 15px; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .landing-page {
+                padding: 10px;
+            }
+
+            .landing-image img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 10px;
+            }
+
+            .landing-text h2 {
+                font-size: 1.5em;
+                margin-bottom: 8px;
+            }
+
+            .landing-text p {
+                font-size: 0.9em;
+                line-height: 1.3em;
+            }
+
+            .landing-text li {
+                font-size: 0.8em;
+            }
+
+            .learn-more-btn {
+                font-size: 0.9em;
+                padding: 6px 12px;
+            }
+        }
+
+
+        .learn-more-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            align-items: center;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 191, 255, 0.5);
+            transition: all 0.3s ease-in-out;
+            border: white; 
+            color: white; 
+        }
+
+        .learn-more-btn:hover {
+            color: white; 
+            box-shadow: 0 6px 12px rgba(0, 139, 191, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .learn-more-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 6px rgba(0, 139, 191, 0.5);
+        }
+        
     </style>
 </head>
 <body>
@@ -239,10 +408,20 @@
 
         <!-- Placeholder for About Me Section -->
         <div class="about-me">
+            <h3>DEVCON Affiliations:</h3>
             <ul>
-                <li>DEVCON Cagayan de Oro - Vice President</li>
-                <li>Former Campus DEVCON Ambassador</li>
-                <li>DEVCON Mindanao Codecamps</li>
+                <li>DEVCON Cagayan de Oro Vice President - 2025</li>
+                <li>DEVCON Code Camps Core Team - 2025</li>
+                <li>Former DEVCON Vice President for Student Engagement - 2024</li>
+                <li>Former Campus DEVCON Ambassador - 2024</li>
+            </ul>
+
+            <h3>Google Developers Affiliations:</h3>
+            <ul>
+                <li>Technical Core Team Member - 2025</li>
+                <li>Former Documentations Core Team Member - 2024</li>
+                <li>GDSC USTP IT Ambassador - 2022</li>
+                <li>GDSC USTP Mobile Development Lead - '2023-2024'</li>
             </ul>
         </div>
 
@@ -253,13 +432,41 @@
             <a href="https://www.facebook.com/yhnalx"><i class="fab fa-facebook"></i>Facebook</a>
         </div>
 
+        <div class="visitor-count">
+            <p>Visitor count: </p>
+        </div>
+        
+
         <!-- Footer Section -->
         <div class="footer">
-            <p>Portfolio published during the Smart Contracts Code Camp<br>
-            by <span>DEVCON</span> and <span>ICP PH</span> at (DEVCON Chapter), (School Name/Venue Name).<br><br>
+            <p>Portfolio published during the Smart Contracts Code Camp by <span>DEVCON</span> and <span>ICP PH</span> at DEVCON Mindanao Codecamps, University of Science and Technology of Southern philippines.<br><br>
             ICP offers a groundbreaking platform for building smart contract projects using your existing expertise in ExpressJS, NextJS, and SQLite.<br>
             This innovative approach leverages canister technology, a new paradigm for smart contracts, to empower developers to create next-generation<br>
             applications. Explore the future of blockchain development with ICP. Visit <a href="https://islacamp.ph/">https://islacamp.ph/</a> to learn more!</p>
+
+            <!-- About ICP -->
+            <div class="landing-page">
+                <div class="landing-content">
+                    <div class="landing-image">
+                        <img src="images/icp-logo.png" alt="ICP Logo">
+                    </div>
+                    <div class="landing-text">
+                        <h2>About ICP</h2>
+                        <p><strong>Internet Computer (ICP)</strong><br>
+                            A blockchain-based protocol that aims to create a decentralized alternative to centralized internet cloud providers: 
+                        </p>
+                        <ul>
+                            <li>How it works: ICP is a network of independent data centers that can work together to create a decentralized internet. It uses smart contracts to replace most of the world's software. ICP's smart contracts are designed to be as powerful as traditional software.</li>
+                            <li>Features: ICP can interface with other smart contract blockchains and traditional Web 2 internet resources. It also allows developers to write contracts using popular languages like Rust, TypeScript, or Python.</li>
+                            <li>ICP token: The ICP token is used for governance, to reward network participants, and to pay fees for making transactions.</li>
+                        </ul>
+                        <!-- Learn More Button -->
+                        <a href="https://internetcomputer.org/" class="learn-more-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+
             
             <div class="footer-logos">
                 <img src="images/devcon-logo.png" alt="DEVCON Logo" class="footer-logo">

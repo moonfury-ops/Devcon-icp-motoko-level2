@@ -1,19 +1,14 @@
 import { portfolio_template_backend } from "../../declarations/portfolio_template_backend";
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const button = e.target.querySelector("button");
+document.addEventListener("DOMContentLoaded", async () => {
+    // Call the Motoko backend to increment and get the visitor count
+    try {
+        const visitCount = await portfolio_template_backend.recordVisit();
 
-  const name = document.getElementById("name").value.toString();
-
-  button.setAttribute("disabled", true);
-
-  // Interact with foo actor, calling the greet method
-  const greeting = await portfolio_template_backend.greet(name);
-
-  button.removeAttribute("disabled");
-
-  document.getElementById("greeting").innerText = greeting;
-
-  return false;
+        // Update the visitor count in the DOM
+        const visitorCountElement = document.querySelector(".visitor-count p");
+        visitorCountElement.textContent = `Visitor count: ${visitCount}`;
+    } catch (error) {
+        console.error("Error fetching visitor count:", error);
+    }
 });
