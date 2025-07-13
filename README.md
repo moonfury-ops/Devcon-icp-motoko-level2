@@ -6,7 +6,7 @@ Welcome to your new **Portfolio Template** project, and welcome to the Internet 
 
 By default, creating a new project adds this README and some template files to your project directory. Feel free to customize the template files and include your own code to speed up your development cycle.
 
-[CHECK OUT MY DEPLOYED PORTFOLIO](https://bit.ly/yhnalx-icp)
+[CHECK OUT MY DEPLOYED PORTFOLIO](https://bit.ly/yhnalx-icp-1)
 
 ---
 
