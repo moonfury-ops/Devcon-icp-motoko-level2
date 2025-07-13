@@ -1,6 +1,7 @@
 
 # DEVCON x ICP Smart Contracts Portfolio
 ## Level 2 Motoko Template
+## Sample porfolio: bit.ly/yhnalx-icp-1
 
 Welcome to your new **Portfolio Template** project, and welcome to the Internet Computer development community! This README serves as an introduction to get you started quickly with your project. 
 
