@@ -17,7 +17,10 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* General Styles */
+      html {
+      scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -26,505 +29,639 @@
         background-position: left;
         background-size: cover;
         color: white;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         min-height: 100vh;
+        width: 100vw;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scroll-padding-top: 140px;
       }
 
-      /* Make the content properly aligned */
-      .container {
+      header {
+        width: 90%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 32px 48px 0 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        background: transparent;
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 32px;
+        margin: 0;
+        padding: 0;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.2s;
+      }
+
+      nav ul li a:hover {
+        color: #b39ddb;
+      }
+
+      main {
         display: flex;
         flex-direction: column;
-        align-items: left;
-        justify-content: flex-start;
-        max-height: 100vh;
-        overflow-y: auto;
+        align-items: center;
+        padding-top: 120px;
+        padding-bottom: 80px;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        gap: 250px;
         width: 100%;
-        padding: 20px;
-        box-sizing: border-box;
-        text-align: left;
+        max-width: 1200px;
+        margin: auto;
       }
 
-      .profile-pic {
-        width: 250px;
-        height: 250px;
+      .hero-content {
+        max-width: 500px;
+        flex: 1;
+      }
+
+      .hero-content h2 {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0 0 1rem 0;
+      }
+
+      .highlight {
+        color: #fff;
+        background: linear-gradient(90deg, #b39ddb 40%, #7c4dff 100%);
+        padding: 0 4px;
+        border-radius: 4px;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        color: #e0e0e0;
+      }
+
+      .about-btn {
+        background: #2e1a47;
+        color: #fff;
+        border: 1px solid #b39ddb;
+        border-radius: 14px;
+        padding: 0.7em 2em;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin-bottom: 2rem;
+        transition: background 0.2s, color 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .about-btn:hover {
+        background: #7c4dff;
+        color: #fff;
+      }
+
+      .circles {
+        display: flex;
+        gap: 24px;
+        margin-top: 1.5rem;
+      }
+
+      .circle {
+        width: 48px;
+        height: 48px;
+        background: rgba(44, 19, 97, 0.6);
         border-radius: 50%;
-        background-color: lightgray;
-        background-size: cover;
-        background-position: left;
-        margin-bottom: 20px;
-        box-shadow: 0 0 15px 5px rgba(0, 191, 255, 0.7),
-          0 0 30px 10px rgba(0, 191, 255, 0.5);
-        transition: box-shadow 0.3s ease-in-out;
-        margin-top: 25px;
-      }
-
-      /* Header Layout */
-      .header {
         display: flex;
-        align-items: left;
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: left;
-      }
-
-      h1 {
-        font-size: 4em;
-        margin: 10px 0;
-      }
-
-      p {
-        font-size: 1.2em;
-        margin: 10px 0;
-      }
-
-      .links {
-        margin: 20px 0;
-        display: flex;
-        justify-content: left;
-        gap: 15px;
-      }
-
-      .links a {
-        color: #00bfff;
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 1.5em;
-        display: inline-flex;
-        align-items: left;
-      }
-
-      .links a i {
-        font-size: 1.2em;
-        margin-right: 8px;
-      }
-
-      .links a:hover {
-        text-decoration: underline;
-      }
-
-      .footer {
-        font-size: 0.9em;
-        color: #b0c4de;
-        margin-top: 40px;
-      }
-
-      /* Footer Logos */
-      .footer-logos {
-        display: flex;
+        align-items: center;
         justify-content: center;
-        gap: 30px;
-        margin-top: 20px;
-      }
-
-      .footer-logo {
-        width: 175px;
-        height: 175px;
-        object-fit: contain;
-      }
-
-      .footer a {
-        color: #00bfff;
+        opacity: 0.9;
+        transition: box-shadow 0.2s, border 0.2s;
+        box-shadow: 0 2px 8px rgba(44, 19, 97, 0.15);
         text-decoration: none;
+        border: 1px solid white; /* Add transparent border for smooth transition */
       }
 
-      .footer a:hover {
-        text-decoration: underline;
+      .circle:hover {
+        box-shadow: 0 4px 16px rgba(124, 77, 255, 0.25);
+        border: 2px solid rgba(44, 19, 97, 0.6); /* Show white border on hover */
       }
 
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5em;
-          text-align: center;
-        }
-
-        .profile-pic {
-          width: 200px;
-          height: 200px;
-          margin-bottom: 10px;
-          margin-top: 25px;
-        }
-
-        .description {
-          font-size: 0.9em;
-          text-align: center;
-        }
-
-        .links a {
-          font-size: 1.2em;
-          margin: 0 10px;
-        }
-
-        .footer-logo {
-          width: 100px;
-          height: 100px;
-        }
-
-        .footer-logos {
-          justify-content: center;
-          gap: 20px;
-        }
-
-        .footer {
-          font-size: 1em;
-          text-align: center;
-        }
-
-        .container {
-          padding: 10px;
-        }
-
-        .header {
-          justify-content: center;
-          text-align: center;
-        }
-
-        .links {
-          display: flex;
-          justify-content: center;
-          gap: 15px;
-          margin: 20px 0;
-        }
+      .circle i {
+        font-size: 1.5rem;
+        text-decoration: none;
+        border-color: white;
       }
 
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 2em;
-          text-align: center;
-        }
+      .hero-image {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
 
-        .profile-pic {
-          width: 150px;
-          height: 150px;
-          margin-bottom: 10px;
-        }
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: #251344;
+        box-shadow: 32px 32px 48px 0 rgba(44, 19, 97, 0.6);
+        z-index: 0;
+      }
 
-        .description {
-          font-size: 1em;
-          text-align: center;
-        }
-
-        .links a {
-          font-size: 1em;
-          margin: 0 8px;
-        }
-
-        .footer-logo {
-          width: 100px;
-          height: 100px;
-        }
-
-        .footer p {
-          margin: 0px;
-        }
-
-        .footer {
-          font-size: 0.8em;
-          text-align: center;
-        }
-
-        .header {
-          justify-content: center;
-          text-align: center;
-        }
-
-        .links {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          margin: 20px 0;
-        }
+      .hero-image img {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        box-shadow: 0 12px 48px 0 black; /* Drop shadow from the bottom */
       }
 
       .landing-page {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        text-align: left;
-        margin: 100px auto;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.7);
-        border-radius: 15px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        max-width: 90%;
-        width: 90%;
-        max-width: 1000px;
-      }
-
-      .landing-content {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-      }
-
-      .landing-image img {
-        width: 200px;
-        height: 200px;
-        padding: 20px;
-        object-fit: contain;
-        border-radius: 50%;
-        box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .landing-image img:hover {
-        transform: scale(1.1);
-      }
-
-      .landing-text {
-        max-width: 600px;
-      }
-
-      .landing-text h2 {
-        font-size: 2.5em;
-        color: #00bfff;
-        margin-bottom: 15px;
-      }
-
-      .landing-text li {
-        font-size: medium;
-        color: #b0c4de;
-        margin-bottom: 15px;
-      }
-
-      .landing-text p {
-        font-size: 1.2em;
-        color: #b0c4de;
-        line-height: 1.6em;
-      }
-
-      @media (max-width: 768px) {
-        .landing-page {
-          flex-direction: column;
-          text-align: center;
-          padding: 15px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          text-align: left;
+          margin: 100px auto;
+          padding: 20px;
+          background-color: rgba(0, 0, 0, 0.7);
+          border-radius: 15px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          max-width: 90%;
+          width: 90%;
+          max-width: 1000px;
         }
 
         .landing-content {
-          flex-direction: column;
-          gap: 20px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 30px;
         }
 
         .landing-image img {
-          width: 150px;
-          height: 150px;
+          width: 200px;
+          height: 200px;
+          padding: 20px;
+          object-fit: contain;
+          border-radius: 50%;
+          box-shadow: 0 0 15px rgba(0, 191, 255, 0.7);
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .landing-image img:hover {
+          transform: scale(1.1);
+        }
+
+        .landing-text {
+          max-width: 600px;
+        }
+
+        .landing-text h2 {
+          font-size: 2.5em;
+          color: #00bfff;
           margin-bottom: 15px;
         }
 
-        .landing-text h2 {
-          font-size: 1.8em;
-          margin-bottom: 10px;
+        .landing-text li {
+          font-size: medium;
+          color: #b0c4de;
+          margin-bottom: 15px;
         }
 
         .landing-text p {
-          font-size: 1em;
-          line-height: 1.4em;
-        }
-
-        .landing-text li {
-          font-size: 0.9em;
+          font-size: 1.2em;
+          color: #b0c4de;
+          line-height: 1.6em;
         }
 
         .learn-more-btn {
-          font-size: 1em;
-          padding: 8px 16px;
-          margin-top: 15px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .landing-page {
-          padding: 10px;
-        }
-
-        .landing-image img {
-          width: 120px;
-          height: 120px;
-          margin-bottom: 10px;
+          margin-top: 12px;
+          display: inline-block;
+          padding: 10px 20px;
+          background: #7c4dff;
+          color: #fff;
+          border-radius: 8px;
+          text-decoration: none;
+          font-weight: bold;
+          box-shadow: 0 4px 8px rgba(44, 19, 97, 0.2);
+          transition: background 0.2s;
         }
 
-        .landing-text h2 {
+        .learn-more-btn:hover {
+          background: #b39ddb;
+        }
+
+        .about-me-section {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          padding: 60px 20px;
+          color: #fff;
+        }
+
+        .about-me-container {
+          max-width: 1000px;
+          width: 100%;
+          background: rgba(20, 20, 30, 0.6);
+          padding: 40px;
+          border-radius: 16px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+          backdrop-filter: blur(8px);
+        }
+
+        .about-me-container h2 {
+          font-size: 2.2em;
+          margin-bottom: 12px;
+          color: #b39ddb;
+        }
+
+        .about-me-container p {
+          font-size: 1.1em;
+          color: #e0e0e0;
+          margin-bottom: 24px;
+        }
+
+        .affiliations {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 32px;
+        }
+
+        .affiliation-card {
+          flex: 1 1 400px;
+          background: rgba(60, 30, 100, 0.5);
+          border-radius: 12px;
+          padding: 20px;
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+          transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .affiliation-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 8px 24px rgba(124, 77, 255, 0.4);
+        }
+
+        .affiliation-card h3 {
+          margin-bottom: 16px;
           font-size: 1.5em;
-          margin-bottom: 8px;
+          color: #c3b6f4;
+          border-bottom: 2px solid #7c4dff;
+          padding-bottom: 4px;
         }
 
-        .landing-text p {
-          font-size: 0.9em;
-          line-height: 1.3em;
+        .affiliation-card ul {
+          list-style: none;
+          padding-left: 0;
         }
 
-        .landing-text li {
-          font-size: 0.8em;
+        .affiliation-card ul li {
+          margin-bottom: 12px;
+          font-size: 1.05em;
+          color: #e0e0e0;
+          position: relative;
+          padding-left: 20px;
         }
 
-        .learn-more-btn {
-          font-size: 0.9em;
-          padding: 6px 12px;
+        .affiliation-card ul li::before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          color: #7c4dff;
+          font-weight: bold;
+        }
+
+        .viewer-count {
+          margin-top: 20px;
+          padding: 12px 20px;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 12px;
+          width: fit-content;
+          backdrop-filter: blur(10px);
+          color: #fff;
+          font-weight: 500;
+          font-size: 16px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+          animation: fadeIn 1s ease;
+        }
+
+        .footer {
+          background-color: #101010;
+          border-radius: 14px;
+          color: #ddd;
+          padding: 40px 20px;
+          text-align: center;
+          font-size: 15px;
+          line-height: 1.7;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer span {
+          color: #f39c12;
+          font-weight: 600;
+        }
+
+        .footer a {
+          color: #1abc9c;
+          text-decoration: none;
+        }
+
+        .footer a:hover {
+          text-decoration: underline;
+        }
+
+        .footer-logos {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+
+        .footer-logo {
+          height: 50px;
+          opacity: 0.85;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .footer-logo:hover {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+
+      @media (max-width: 900px) {
+        main {
+          padding-top: 160px;
+        }
+        .hero {
+          flex-direction: column;
+          gap: 32px;
+        }
+        .hero-image {
+          margin-top: 24px;
+          width: 300px;
+          height: 300px;
+        }
+        .hero-image::before,
+        .hero-image img {
+          width: 300px;
+          height: 300px;
         }
       }
 
-      .learn-more-btn {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: transparent;
-        font-size: 1.2em;
-        font-weight: bold;
-        text-align: center;
-        align-items: center;
-        text-decoration: none;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 191, 255, 0.5);
-        transition: all 0.3s ease-in-out;
-        border: white;
-        color: white;
-      }
-
-      .learn-more-btn:hover {
-        color: white;
-        box-shadow: 0 6px 12px rgba(0, 139, 191, 0.7);
-        transform: translateY(-2px);
-      }
-
-      .learn-more-btn:active {
-        transform: translateY(0);
-        box-shadow: 0 3px 6px rgba(0, 139, 191, 0.5);
+      @media (max-width: 600px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 24px;
+        }
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+        .hero-content h2 {
+          font-size: 1.2rem;
+        }
+        .hero-image {
+          width: 200px;
+          height: 200px;
+        }
+        .hero-image::before,
+        .hero-image img {
+          width: 200px;
+          height: 200px;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <!-- The rest of your HTML content goes here -->
-      <div class="header">
-        <div
-          class="profile-pic"
-          style="background-image: url('images/profile-pic.jpg')"
-        ></div>
-      </div>
-
-      <!-- Placeholder for your name -->
-      <h1>John Richard B. Alix</h1>
-      <p class="description">I am an innovator, and build projects for fun♥</p>
-      <h3>About Me:</h3>
-
-      <!-- Placeholder for About Me Section -->
-      <div class="about-me">
-        <h3>DEVCON Affiliations:</h3>
+    <header>
+      <div class="logo">YHNALX</div>
+      <nav>
         <ul>
-          <li>DEVCON Cagayan de Oro Vice President - 2025</li>
-          <li>DEVCON Code Camps Core Team - 2025</li>
-          <li>Former DEVCON Vice President for Student Engagement - 2024</li>
-          <li>Former Campus DEVCON Ambassador - 2024</li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">PROJECTS</a></li>
+          <li><a href="#">PROMOTIONS</a></li>
+          <li><a href="#">CONTACT</a></li>
         </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Hi there,</h2>
+          <h1>I'm <span class="highlight">John Richard Alix</span></h1>
+          <p>I am an Innovator, and I Build projects for Fun |</p>
+          <button class="about-btn">
+            <i class="fas fa-user"></i>
+            About Me
+          </button>
+          <div class="circles">
+            <a
+              href="https://linkedin.com/"
+              target="_blank"
+              class="circle"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in" style="color: #0a66c2"></i>
+            </a>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              class="circle"
+              title="GitHub"
+            >
+              <i class="fab fa-github" style="color: #171515"></i>
+            </a>
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              class="circle"
+              title="Twitter"
+            >
+              <i class="fab fa-twitter" style="color: #1da1f2"></i>
+            </a>
+            <a
+              href="https://telegram.org/"
+              target="_blank"
+              class="circle"
+              title="Telegram"
+            >
+              <i class="fab fa-telegram-plane" style="color: #0088cc"></i>
+            </a>
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              class="circle"
+              title="Instagram"
+            >
+              <i class="fab fa-instagram" style="color: #e1306c"></i>
+            </a>
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              class="circle"
+              title="Facebook"
+            >
+              <i class="fab fa-facebook-f" style="color: #1877f3"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/2x2.png" alt="Profile" />
+        </div>
+      </section>
 
-        <h3>Google Developers Affiliations:</h3>
-        <ul>
-          <li>Technical Core Team Member - 2025</li>
-          <li>Former Documentations Core Team Member - 2024</li>
-          <li>GDSC USTP IT Ambassador - 2022</li>
-          <li>GDSC USTP Mobile Development Lead - '2023-2024'</li>
-        </ul>
-      </div>
+      <!-- About Me Section -->
+      <section class="about-me-section">
+        <div class="about-me-container">
+          <h2>👋 About Me</h2>
+          <div class="viewer-count">
+            <p>Viewer count: Loading...</p>
+          </div>
+          <p>
+            I'm John Richard Alix — an innovator and community builder passionate about tech,
+            leadership, and development. Here's a quick snapshot of my active affiliations:
+          </p>
 
-      <!-- Centered Links -->
-      <div class="links">
-        <a href="https://www.linkedin.com/in/john-richard-alix-666481230/"
-          ><i class="fab fa-linkedin"></i>LinkedIn</a
-        >
-        <a href="https://github.com/yhnalx"
-          ><i class="fab fa-github"></i>GitHub</a
-        >
-        <a href="https://www.facebook.com/yhnalx"
-          ><i class="fab fa-facebook"></i>Facebook</a
-        >
-      </div>
-
-      <div class="viewer-count">
-        <p>Viewier count:</p>
-      </div>
-
-      <!-- Footer Section -->
-      <div class="footer">
-        <p>
-          Portfolio published during the Smart Contracts Code Camp by
-          <span>DEVCON</span> and <span>ICP PH</span> at DEVCON Mindanao
-          Codecamps, University of Science and Technology of Southern
-          philippines.<br /><br />
-          ICP offers a groundbreaking platform for building smart contract
-          projects using your existing expertise in ExpressJS, NextJS, and
-          SQLite.<br />
-          This innovative approach leverages canister technology, a new paradigm
-          for smart contracts, to empower developers to create
-          next-generation<br />
-          applications. Explore the future of blockchain development with ICP.
-          Visit <a href="https://islacamp.ph/">https://islacamp.ph/</a> to learn
-          more!<br /><br />
-          Built using <strong>Motoko framework</strong>, the language shaping
-          the future of Web3. Motoko is a modern, general-purpose programming
-          language you can use specifically to author ICP canister smart
-          contracts.
-        </p>
-
-        <!-- About ICP -->
-        <div class="landing-page">
-          <div class="landing-content">
-            <div class="landing-image">
-              <img src="images/icp-logo.png" alt="ICP Logo" />
-            </div>
-            <div class="landing-text">
-              <h2>About ICP</h2>
-              <p>
-                <strong>Internet Computer (ICP)</strong><br />
-                A blockchain-based protocol that aims to create a decentralized
-                alternative to centralized internet cloud providers:
-              </p>
+          <div class="affiliations">
+            <div class="affiliation-card">
+              <h3>DEVCON Affiliations</h3>
               <ul>
-                <li>
-                  How it works: ICP is a network of independent data centers
-                  that can work together to create a decentralized internet. It
-                  uses smart contracts to replace most of the world's software.
-                  ICP's smart contracts are designed to be as powerful as
-                  traditional software.
-                </li>
-                <li>
-                  Features: ICP can interface with other smart contract
-                  blockchains and traditional Web 2 internet resources. It also
-                  allows developers to write contracts using popular languages
-                  like Rust, TypeScript, or Python.
-                </li>
-                <li>
-                  ICP token: The ICP token is used for governance, to reward
-                  network participants, and to pay fees for making transactions.
-                </li>
+                <li>✅ DEVCON Cagayan de Oro Vice President - 2025</li>
+                <li>✅ DEVCON Code Camps Core Team - 2025</li>
+                <li>✅ Former VP for Student Engagement - 2024</li>
+                <li>✅ Former Campus DEVCON Ambassador - 2024</li>
               </ul>
-              <!-- Learn More Button -->
-              <p>
-                My GitHub code helped 300+ students, professionals and educators
-                from x Chapter Locations Nationwide to build and publish their
-                first ever <strong>smart contracts</strong> project.
-              </p>
-              <a href="https://internetcomputer.org/" class="learn-more-btn"
-                >Learn More</a
-              >
+            </div>
+
+            <div class="affiliation-card">
+              <h3>Google Developers Affiliations</h3>
+              <ul>
+                <li>🌟 Technical Core Team Member - 2025</li>
+                <li>🌟 Former Documentations Core - 2024</li>
+                <li>🌟 GDSC USTP IT Ambassador - 2022</li>
+                <li>🌟 GDSC USTP Mobile Dev Lead - 2023-2024</li>
+              </ul>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="footer-logos">
-          <img
-            src="images/devcon-logo.png"
-            alt="DEVCON Logo"
-            class="footer-logo"
-          />
-          <img src="images/icp-logo.png" alt="ICP Logo" class="footer-logo" />
+      <!-- About ICP Section -->
+      <div class="landing-page">
+        <div class="landing-content">
+          <div class="landing-image">
+            <img src="images/icp-logo.png" alt="ICP Logo" />
+          </div>
+          <div class="landing-text">
+            <h2>About ICP</h2>
+            <p>
+              <strong>Internet Computer (ICP)</strong><br />
+              A blockchain-based protocol that aims to create a decentralized
+              alternative to centralized internet cloud providers:
+            </p>
+            <ul>
+              <li>
+                <strong>How it works:</strong> ICP is a network of independent data centers
+                that can work together to create a decentralized internet. It uses smart
+                contracts to replace most of the world's software. ICP's smart contracts are
+                designed to be as powerful as traditional software.
+              </li>
+              <li>
+                <strong>Features:</strong> ICP can interface with other smart contract
+                blockchains and traditional Web 2 internet resources. It also allows
+                developers to write contracts using popular languages like Rust, TypeScript,
+                or Python.
+              </li>
+              <li>
+                <strong>ICP token:</strong> The ICP token is used for governance, to reward
+                network participants, and to pay fees for making transactions.
+              </li>
+            </ul>
+            <p>
+              My GitHub code helped 300+ students, professionals and educators
+              from x Chapter Locations Nationwide to build and publish their
+              first ever <strong>smart contracts</strong> project.
+            </p>
+            <a href="https://internetcomputer.org/" class="learn-more-btn"
+              >Learn More</a>
+          </div>
         </div>
       </div>
+
+      <div class="footer">
+      <p>
+        Portfolio published during the Smart Contracts Code Camp by
+        <span>DEVCON</span> and <span>ICP PH</span> at DEVCON Mindanao Codecamps,
+        University of Science and Technology of Southern Philippines.<br /><br />
+        ICP offers a groundbreaking platform for building smart contract projects
+        using your existing expertise in ExpressJS, NextJS, and SQLite.<br />
+        This innovative approach leverages canister technology, a new paradigm for
+        smart contracts, to empower developers to create next-generation<br />
+        applications. Explore the future of blockchain development with ICP.
+        Visit <a href="https://islacamp.ph/" target="_blank">https://islacamp.ph/</a> to learn
+        more!<br /><br />
+        Built using <strong>Motoko framework</strong>, the language shaping the
+        future of Web3. Motoko is a modern, general-purpose programming language you
+        can use specifically to author ICP canister smart contracts.
+      </p>
+
+      <div class="footer-logos">
+        <img
+          src="images/devcon-logo.png"
+          alt="DEVCON Logo"
+          class="footer-logo"
+        />
+        <img
+          src="images/icp-logo.png"
+          alt="ICP Logo"
+          class="footer-logo"
+        />
+      </div>
     </div>
+
+
+      </section>
+    </main>
   </body>
 </html>
