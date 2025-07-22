@@ -1,6 +1,7 @@
 
 # DEVCON x ICP Smart Contracts Portfolio
 ## Level 2 Motoko Template
+## Sample porfolio: bit.ly/yhnalx-icp-1
 
 Welcome to your new **Portfolio Template** project, and welcome to the Internet Computer development community! This README serves as an introduction to get you started quickly with your project. 
 
@@ -11,6 +12,14 @@ By default, creating a new project adds this README and some template files to y
 ---
 
 ## Getting Started
+
+`In order to use this template make sure that you are using dfx version 0.15.1 for native javascript development framework`
+
+### Walkthrough how to get 0.15.1 using dfx version manager.
+`dfxvm install 0.15.1`
+`dfxvm default 0.15.1`
+`restart your terminal`
+`HAPPY CODING`
 
 Before you dive into development, here are some key resources to help you get familiar with the project:
 
